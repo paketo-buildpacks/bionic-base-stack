@@ -1,0 +1,61 @@
+id = "io.buildpacks.stacks.bionic"
+homepage = "https://github.com/paketo-buildpacks/bionic-base-stack"
+maintainer = "Paketo Buildpacks"
+
+platforms = ["linux/amd64"]
+
+[build]
+  description = "ubuntu:bionic + openssl + CA certs + compilers + shell utilities"
+  dockerfile = "./build.Dockerfile"
+  gid = 1000
+  shell = "/bin/bash"
+  uid = 1000
+
+  [build.args]
+    sources = """
+    deb http://archive.ubuntu.com/ubuntu bionic main universe multiverse
+    deb http://archive.ubuntu.com/ubuntu bionic-updates main universe multiverse
+    deb http://archive.ubuntu.com/ubuntu bionic-security main universe multiverse
+    """
+
+    packages = """\
+    build-essential \
+    ca-certificates \
+    curl \
+    git \
+    jq \
+    libexpat1 \
+    libgmp-dev \
+    libssl1.1 \
+    libyaml-0-2 \
+    netbase \
+    openssl \
+    tzdata \
+    xz-utils \
+    zlib1g-dev \
+    """
+
+[run]
+  description = "ubuntu:bionic + openssl + CA certs"
+  dockerfile = "./run.Dockerfile"
+  gid = 1000
+  shell = "/bin/bash"
+  uid = 1000
+
+  [run.args]
+    sources = """
+    deb http://archive.ubuntu.com/ubuntu bionic main universe multiverse
+    deb http://archive.ubuntu.com/ubuntu bionic-updates main universe multiverse
+    deb http://archive.ubuntu.com/ubuntu bionic-security main universe multiverse
+    """
+
+    packages = """\
+    ca-certificates \
+    libexpat1 \
+    libssl1.1 \
+    libyaml-0-2 \
+    netbase \
+    openssl \
+    tzdata \
+    zlib1g \
+    """
