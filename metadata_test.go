@@ -77,6 +77,9 @@ func testMetadata(t *testing.T, context spec.G, it spec.S) {
 				HaveKeyWithValue("io.buildpacks.stack.homepage", "https://github.com/paketo-buildpacks/bionic-base-stack"),
 				HaveKeyWithValue("io.buildpacks.stack.maintainer", "Paketo Buildpacks"),
 				HaveKeyWithValue("io.buildpacks.stack.metadata", MatchJSON("{}")),
+				HaveKeyWithValue("io.buildpacks.stack.mixins", ContainSubstring(`"build:jq"`)),
+				HaveKeyWithValue("io.buildpacks.stack.mixins", ContainSubstring(`"ca-certificates"`)),
+				HaveKeyWithValue("io.paketo.stack.packages", ContainSubstring(`"jq"`)),
 			))
 
 			buildReleaseDate, err = time.Parse(time.RFC3339, file.Config.Labels["io.buildpacks.stack.released"])
@@ -163,6 +166,8 @@ func testMetadata(t *testing.T, context spec.G, it spec.S) {
 				HaveKeyWithValue("io.buildpacks.stack.homepage", "https://github.com/paketo-buildpacks/bionic-base-stack"),
 				HaveKeyWithValue("io.buildpacks.stack.maintainer", "Paketo Buildpacks"),
 				HaveKeyWithValue("io.buildpacks.stack.metadata", MatchJSON("{}")),
+				HaveKeyWithValue("io.buildpacks.stack.mixins", ContainSubstring(`"ca-certificates"`)),
+				HaveKeyWithValue("io.paketo.stack.packages", ContainSubstring(`"ca-certificates"`)),
 			))
 
 			runReleaseDate, err = time.Parse(time.RFC3339, file.Config.Labels["io.buildpacks.stack.released"])
