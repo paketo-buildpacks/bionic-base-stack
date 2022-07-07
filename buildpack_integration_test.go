@@ -51,22 +51,18 @@ func testBuildpackIntegration(t *testing.T, context spec.G, it spec.S) {
 		buildpackStore := occam.NewBuildpackStore()
 
 		mavenBuildpack, err = buildpackStore.Get.
-			WithVersion("6.5.5").
 			Execute("github.com/paketo-buildpacks/maven")
 		Expect(err).NotTo(HaveOccurred())
 
 		jvmBuildpack, err = buildpackStore.Get.
-			WithVersion("9.3.4").
 			Execute("github.com/paketo-buildpacks/sap-machine")
 		Expect(err).NotTo(HaveOccurred())
 
 		syftBuildpack, err = buildpackStore.Get.
-			WithVersion("1.12.0").
 			Execute("github.com/paketo-buildpacks/syft")
 		Expect(err).NotTo(HaveOccurred())
 
 		executableJarBuildpack, err = buildpackStore.Get.
-			WithVersion("6.2.4").
 			Execute("github.com/paketo-buildpacks/executable-jar")
 		Expect(err).NotTo(HaveOccurred())
 

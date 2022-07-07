@@ -5,7 +5,7 @@ maintainer = "Paketo Buildpacks"
 platforms = ["linux/amd64"]
 
 [build]
-  description = "ubuntu:bionic + openssl + CA certs + compilers + shell utilities"
+  description = "ubuntu:bionic with compilers and shell utilities"
   dockerfile = "./build.Dockerfile"
   gid = 1000
   shell = "/bin/bash"
@@ -36,7 +36,7 @@ platforms = ["linux/amd64"]
     """
 
 [run]
-  description = "ubuntu:bionic + openssl + CA certs"
+  description = "ubuntu:bionic with some common dependencies like tzdata and openssl"
   dockerfile = "./run.Dockerfile"
   gid = 1000
   shell = "/bin/bash"

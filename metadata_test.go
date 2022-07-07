@@ -71,7 +71,7 @@ func testMetadata(t *testing.T, context spec.G, it spec.S) {
 
 			Expect(file.Config.Labels).To(SatisfyAll(
 				HaveKeyWithValue("io.buildpacks.stack.id", "io.buildpacks.stacks.bionic"),
-				HaveKeyWithValue("io.buildpacks.stack.description", "ubuntu:bionic + openssl + CA certs + compilers + shell utilities"),
+				HaveKeyWithValue("io.buildpacks.stack.description", "ubuntu:bionic with compilers and shell utilities"),
 				HaveKeyWithValue("io.buildpacks.stack.distro.name", "ubuntu"),
 				HaveKeyWithValue("io.buildpacks.stack.distro.version", "18.04"),
 				HaveKeyWithValue("io.buildpacks.stack.homepage", "https://github.com/paketo-buildpacks/bionic-base-stack"),
@@ -160,7 +160,7 @@ func testMetadata(t *testing.T, context spec.G, it spec.S) {
 
 			Expect(file.Config.Labels).To(SatisfyAll(
 				HaveKeyWithValue("io.buildpacks.stack.id", "io.buildpacks.stacks.bionic"),
-				HaveKeyWithValue("io.buildpacks.stack.description", "ubuntu:bionic + openssl + CA certs"),
+				HaveKeyWithValue("io.buildpacks.stack.description", "ubuntu:bionic with some common dependencies like tzdata and openssl"),
 				HaveKeyWithValue("io.buildpacks.stack.distro.name", "ubuntu"),
 				HaveKeyWithValue("io.buildpacks.stack.distro.version", "18.04"),
 				HaveKeyWithValue("io.buildpacks.stack.homepage", "https://github.com/paketo-buildpacks/bionic-base-stack"),
