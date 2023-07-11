@@ -1,5 +1,11 @@
 # Paketo Bionic Base Stack
 
+## ⚠️ This repository is archived. No further releases will be made! ⚠️
+
+## Use the [Paketo Jammy Base Stack](https://github.com/paketo-buildpacks/jammy-base-stack) instead.
+
+---
+
 ## What is a stack?
 See Paketo's [stacks documentation](https://paketo.io/docs/concepts/stacks/).
 
